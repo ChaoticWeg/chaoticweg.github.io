@@ -39,6 +39,7 @@ const fetchUser: QueryFunction<FetchUserResult, string[]> = async ({ queryKey })
 export function useUser(username: string) {
     return useQuery({
         queryKey: ["users", username],
-        queryFn: fetchUser
+        queryFn: fetchUser,
+        staleTime: Infinity
     });
 }
