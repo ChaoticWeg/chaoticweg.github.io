@@ -1,7 +1,10 @@
 import type { Styles } from "@mantine/core";
 import { AppShell } from "@mantine/core";
+import { lazy, Suspense, useMemo } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar";
+
+import { Navbar as MantineNavbar } from "@mantine/core";
+const Navbar = lazy(() => import("../components/Navbar"));
 
 const styles: Styles<"main", Record<string, any>> = (theme) => ({
     main: {
@@ -11,8 +14,18 @@ const styles: Styles<"main", Record<string, any>> = (theme) => ({
 });
 
 export default function Layout() {
+    const fallbackNavbar = useMemo(() => <MantineNavbar children={null} width={{ base: 250 }} />, []);
+
     return (
-        <AppShell padding="md" navbar={<Navbar />} styles={styles}>
+        <AppShell
+            padding="md"
+            styles={styles}
+            navbar={
+                <Suspense fallback={fallbackNavbar}>
+                    <Navbar />
+                </Suspense>
+            }
+        >
             <Outlet />
         </AppShell>
     );
