@@ -1,0 +1,1 @@
+import{S as r}from"./App.2ec22d5d.js";import{j as e}from"./vendor.c2635e64.js";import{T as o}from"./Text.cb1824e2.js";import"./index.7f2ede97.js";function a(){return e(r,{title:"Home",children:e(o,{children:"Home"})})}export{a as default};
