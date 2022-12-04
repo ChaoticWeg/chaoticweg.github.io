@@ -1,5 +1,7 @@
 import { Avatar, createStyles, Group, Text, UnstyledButton } from "@mantine/core";
 import { IconChevronRight } from "@tabler/icons";
+import type { MouseEventHandler } from "react";
+import { forwardRef } from "react";
 
 const useStyles = createStyles((theme) => ({
     button: {
@@ -14,12 +16,12 @@ const useStyles = createStyles((theme) => ({
     }
 }));
 
-export function NavbarUserButton(props: NavbarUserButtonProps) {
-    const { user } = props;
+export const NavbarUserButton = forwardRef<HTMLButtonElement, NavbarUserButtonProps>((props, ref) => {
+    const { onClick, user } = props;
     const { classes } = useStyles();
 
     return (
-        <UnstyledButton className={classes.button}>
+        <UnstyledButton className={classes.button} ref={ref} onClick={onClick}>
             <Group>
                 <Avatar src={user?.avatar_url} radius="xl" />
                 <div style={{ flex: 1 }}>
@@ -34,7 +36,7 @@ export function NavbarUserButton(props: NavbarUserButtonProps) {
             </Group>
         </UnstyledButton>
     );
-}
+});
 
 export interface NavbarUser {
     name: string;
@@ -42,5 +44,6 @@ export interface NavbarUser {
 }
 
 interface NavbarUserButtonProps {
+    onClick: MouseEventHandler<HTMLButtonElement>;
     user?: NavbarUser | null;
 }
