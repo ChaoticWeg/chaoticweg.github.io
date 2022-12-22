@@ -1,0 +1,1 @@
+import{v as r}from"./index.991c03d4.js";import{j as t}from"./vendor.c2635e64.js";import"./index.50cb9185.js";import"./App.401324ff.js";import"./Text.2ff947b1.js";function f(o){return t(r,{...o})}export{f as default};

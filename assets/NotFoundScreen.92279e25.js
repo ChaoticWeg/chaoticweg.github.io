@@ -1,0 +1,1 @@
+import{S as o}from"./App.401324ff.js";import{j as r}from"./vendor.c2635e64.js";import{T as t}from"./Text.2ff947b1.js";import"./index.50cb9185.js";function a(){return r(o,{children:r(t,{children:"Not Found"})})}export{a as default};
