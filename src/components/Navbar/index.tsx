@@ -38,8 +38,7 @@ const useStyles = createStyles((theme) => {
 });
 
 const links: NavbarLinkProps[] = [
-    { title: "Home", href: "/", Icon: IconHome },
-    { title: "LOL", href: "/lol", Icon: IconCpu }
+    { title: "Home", href: "/", Icon: IconHome }
 ];
 
 export default function Navbar() {
